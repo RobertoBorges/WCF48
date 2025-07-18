@@ -1,11 +1,70 @@
 # WCF48 Demo - Customer Service
 
-A complete WCF (Windows Communication Foundation) demo application built with .NET Framework 4.8 featuring a Customer service endpoint with sample data.
+A complete customer service solution showing migration from WCF (.NET Framework 4.8) to modern REST API (.NET 8.0).
 
 ## Project Structure
 
-- **CustomerService**: WCF Service Library containing the service contracts, data contracts, and service implementation
-- **CustomerService.Host**: Console application to host and test the WCF service
+- **CustomerService**: Original WCF Service Library (.NET Framework 4.8)
+- **CustomerService.Host**: Console application to host the WCF service (.NET Framework 4.8)
+- **CustomerService.WebApi**: Modern REST API with Swagger (.NET 8.0) ⭐ **NEW**
+
+## 🆕 Web API (.NET 8.0) - **RECOMMENDED**
+
+The new **CustomerService.WebApi** project provides a modern REST API with:
+
+- ✅ REST endpoints instead of SOAP
+- ✅ Swagger/OpenAPI documentation  
+- ✅ JSON serialization
+- ✅ Cross-platform compatibility
+- ✅ Better performance
+- ✅ Interactive API testing
+
+### Quick Start (Web API)
+
+1. Navigate to the Web API directory:
+   ```bash
+   cd CustomerService.WebApi
+   ```
+
+2. Run the application:
+   ```bash
+   dotnet run
+   ```
+
+3. Open Swagger UI: `http://localhost:5114`
+
+![Swagger UI](https://github.com/user-attachments/assets/51499dcd-7d3c-48a9-890e-ec66375e0a27)
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/customers` | Get all customers |
+| GET | `/api/customers/{id}` | Get customer by ID |
+| GET | `/api/customers/by-city/{city}` | Get customers by city |
+| GET | `/api/customers/search?searchTerm={term}` | Search customers |
+| GET | `/api/customers/count` | Get total customer count |
+| POST | `/api/customers` | Create new customer |
+| PUT | `/api/customers/{id}` | Update existing customer |
+| DELETE | `/api/customers/{id}` | Delete customer |
+
+## 📊 Migration Comparison
+
+| Aspect | WCF (.NET Framework) | Web API (.NET 8.0) |
+|--------|---------------------|---------------------|
+| **Protocol** | SOAP/WS-* | REST/HTTP |
+| **Data Format** | XML | JSON |
+| **Documentation** | WSDL | Swagger/OpenAPI |
+| **Testing** | WCF Test Client | Swagger UI + curl |
+| **Performance** | Heavy SOAP envelope | Lightweight JSON |
+| **Platform** | Windows only | Cross-platform |
+| **Modern Features** | Limited | Async/await, DI, etc. |
+
+---
+
+## Legacy WCF Version (.NET Framework 4.8)
+
+> **Note**: The WCF version is maintained for reference, but the Web API version is recommended for new development.
 
 ## Features
 
